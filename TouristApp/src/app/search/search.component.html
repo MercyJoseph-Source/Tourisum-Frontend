@@ -1,0 +1,41 @@
+<h2>Serach Branches </h2>
+<div id="search-component" >
+   <!--  <div>
+        <label for="serch-type">Search  Type: </label>
+        <input id="serch-type" [(ngModel)]="criteria" placeholder="Search Type"/>
+      </div>
+      <div>
+        <label for="serch-value">Search Value : </label>
+        <input id="serch-value" [(ngModel)]="criteriaValue" placeholder="Search Value"/>
+      </div>
+      <button type="button" (click)="SerachCompanies(criteria, criteriaValue)">Search</button>
+  
+    
+  </div> -->
+
+  <div class="container">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Website</th>
+                <th>Contact</th>
+                <th>Place</th>
+                <th>Tariff</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let branch ngForOf branches$">
+                <td>{{branch.branchId}}</td>
+                <td>{{branch.branchName}} </td>
+                <td>{{branch.email}}</td>
+                <td>{{branch.website}}</td>
+                <td>{{branch.contact}}</td>
+                <td>{{branch.place}}</td>
+                <td>{{branch.tariff}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
