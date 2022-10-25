@@ -10,7 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class SearchComponent implements OnInit {
 
-  public branches?: CompanyDetails[]=[];
+  public branches : CompanyDetails[]=[];
   
 isSubmitted = false;
 CriteriaType: any = ['Branch Id', 'Branch Name', 'Place'];
@@ -24,11 +24,11 @@ changeCriteria(e: any) {
     onlySelf: true,
   });
 }
-get criteriaValue() {
+public get criteriaValue() {
   return this.searchForm.get('criteriaValue');
 }
 // Access formcontrols getter
-get criteria() {
+public get criteria() {
   return this.searchForm.get('criteria');
 }
 onSubmit(): void {
@@ -47,9 +47,10 @@ onSubmit(): void {
      
     if (option.length >0)
     {
-      searchOption = option[1].replace(" ","");
+      searchOption = option[1].replace(/\s/g, '');
     }
     console.log('Selected option '+ searchOption);
+    
 
     this.companyService.SearchCompanies(searchOption , this.criteriaValue?.value).subscribe(data => 
       {
@@ -63,17 +64,9 @@ onSubmit(): void {
       }); 
 
     console.warn('Your searc has been submitted', this.searchForm.value);
-    this.searchForm.reset();
+    //this.searchForm.reset();
   }
 }
-/* SerachCompanies(criteria : string, criteriaValue :string )
-{ 
- this.companyService.SearchCompanies(criteria, criteriaValue).subscribe(data => 
-   {
-     this.branches = data;
-     console.log('companies'+JSON.stringify(data));
-   }); 
-} */
 
   ngOnInit(): void {
   }

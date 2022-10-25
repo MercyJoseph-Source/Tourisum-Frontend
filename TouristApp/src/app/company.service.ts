@@ -14,7 +14,8 @@ export class CompanyService {
 
   SearchCompanies( criteria: string, criteriaValue: string):Observable<CompanyDetails[]>
   {  
-   let result = this.http.get<CompanyDetails[]>(this.Url+"http://localhost:9552/api/v1/admin/"+ criteria +"/" + criteriaValue);   
+    var url = this.Url+"api/v1/admin/"+ criteria +"/" + criteriaValue;
+   var result = this.http.get<CompanyDetails[]>(url);   
    return result;
   } 
 }

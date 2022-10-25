@@ -1,31 +1,23 @@
-   <!--  <div>
-        <label for="serch-type">Search  Type: </label>
-        <input id="serch-type" [(ngModel)]="criteria" placeholder="Search Type"/>
-      </div>
-      <div>
-        <label for="serch-value">Search Value : </label>
-        <input id="serch-value" [(ngModel)]="criteriaValue" placeholder="Search Value"/>
-      </div>
-      <button type="button" (click)="SerachCompanies(criteria, criteriaValue)">Search</button>
-  
-    
-  </div> -->
+   
   <div class="container mt-5">
     <div class="row custom-wrapper">
       <h2 class="mb-3 text-center">Search Companies</h2>
       <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
         <div class="d-grid">
-          <select class="custom-select mb-3"
+          <label for="criteria">
+            Select Criteria  
+          </label>
+          <select 
             (change)="changeCriteria($event)"
             formControlName="criteria" >
-            <option value="">Choose search criteria</option>
+            <!-- <option value="">Choose search criteria</option> -->
             <option *ngFor="let criteriaType of CriteriaType" [ngValue]="criteriaType">
               {{ criteriaType }}
             </option>
           </select>
           <!-- error block -->
           <div class="invalid-feedback" *ngIf="isSubmitted && criteria?.invalid">
-            <sup>*</sup>Please provide Criteria type
+            <sup>*</sup>Please provide criteria type
           </div><p></p>
           <div class="d-grid">
             <label for="criteriaValue">
@@ -34,7 +26,7 @@
             <input id="criteriaValue" type="text" formControlName="criteriaValue">
           </div>
           <p></p>
-          <button type="submit" class="btn btn-danger btn-lg btn-block">
+          <button type="submit" class="btn btn-lg btn-block btn-danger">
             Search
           </button>
         </div>
@@ -47,8 +39,8 @@
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
+                <th>Branh Id</th>
+                <th>Branch Name</th>
                 <th>Email</th>
                 <th>Website</th>
                 <th>Contact</th>
@@ -57,7 +49,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let branch ngForOf branches$">
+            <tr *ngFor="let branch of branches">
                 <td>{{branch.branchId}}</td>
                 <td>{{branch.branchName}} </td>
                 <td>{{branch.email}}</td>
