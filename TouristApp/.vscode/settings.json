@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/92685c50-5904-477b-a087-b1526ff21a9c/AppServices/subscriptions/92685c50-5904-477b-a087-b1526ff21a9c/resourceGroups/Rg_TouristMongoDB/providers/Microsoft.Web/sites/TouristUI",
+    "appService.deploySubpath": "."
+}
